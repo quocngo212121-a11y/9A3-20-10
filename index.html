@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 Thư gửi 9A3 💌</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffe6f2, #ffccff);
+            font-family: "Poppins", sans-serif;
+        }
+        h1 {
+            color: #ff66b2;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        button {
+            padding: 12px 28px;
+            background: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        button:hover {
+            background: #ff3385;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        .heart {
+            position: absolute;
+            font-size: 22px;
+            color: #ff66b2;
+            animation: float 5s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(-30px) scale(1.2);}
+            100% { transform: translateY(0) scale(1);}
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 Thư bí mật gửi đến 9A3 💖</h1>
+    <button onclick="window.location.href='loichuc.html'">Mở thư 💌</button>
+
+    <div class="heart" style="left:10%;animation-delay:0s;">❤</div>
+    <div class="heart" style="left:25%;animation-delay:1s;">💗</div>
+    <div class="heart" style="left:50%;animation-delay:2s;">💖</div>
+    <div class="heart" style="left:75%;animation-delay:1.5s;">💕</div>
+    <div class="heart" style="left:90%;animation-delay:0.5s;">💞</div>
+</body>
+</html>
