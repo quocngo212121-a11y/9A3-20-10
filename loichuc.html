@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L?i chúc 20/10 - 9A3 ??</title>
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #ffe6f2, #ffd6e8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #ff99cc;
+  cursor: pointer;
+  transition: 0.6s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.envelope::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid #ff66b2;
+  transition: 0.6s;
+  transform-origin: top;
+}
+.paper {
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  width: 250px;
+  height: 0;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transition: 1s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.text {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-line;
+  display: none;
+}
+img {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  width: 150px;
+}
+@keyframes floatHearts {
+  0% {transform: translateY(100vh); opacity: 1;}
+  100% {transform: translateY(-10vh); opacity: 0;}
+}
+.heart {
+  position: absolute;
+  color: #ff66a3;
+  animation: floatHearts 8s linear infinite;
+}
+</style>
+</head>
+<body>
+<div class="envelope" id="env"></div>
+<div class="paper" id="paper">
+  <div class="text" id="msg"></div>
+</div>
+<img src="https://cdn-media.sforum.vn/storage/app/media/giangnguyen/gif%2020%2010-6.gif" alt="cute">
+<script>
+const env = document.getElementById('env');
+const paper = document.getElementById('paper');
+const msg = document.getElementById('msg');
+
+const message = `?? L?i chúc g?i đ?n nh?ng cô gái 9A3 thân thương ??
+
+Tháng mư?i l?i v?, mang theo n?ng vàng d?u nh? và nh?ng bông hoa tươi th?m nh?t g?i t?ng m?t n?a đáng yêu c?a 9A3. C?m ơn các b?n – nh?ng cô gái luôn xinh đ?p, d?u dàng mà c?ng m?nh m?, luôn là ngu?n năng lư?ng và n? cư?i c?a c? l?p. 20/10 năm nay, chúc các b?n m?i r?ng r?, h?c gi?i, t? tin theo đu?i ư?c mơ, và luôn đư?c yêu thương th?t nhi?u.
+
+Nh?ng ngày cu?i c?p đang d?n đ?n, mong r?ng chúng ta s? cùng nhau lưu gi? th?t nhi?u k? ni?m đ?p – nơi 9A3 không ch? là m?t l?p h?c, mà c?n là m?t ph?n tu?i tr? không th? quên.
+
+Chúc m?ng ngày 20/10 ??
+T? các chàng trai l?p 9A3 ??`;
+
+env.addEventListener('click', () => {
+  env.style.transform = 'rotateX(180deg)';
+  paper.style.height = '320px';
+  paper.style.opacity = '1';
+  setTimeout(() => {
+    msg.style.display = 'block';
+    typeEffect(message);
+  }, 1200);
+  playMusic();
+});
+
+function typeEffect(text) {
+  let i = 0;
+  const speed = 40;
+  function typing() {
+    if (i < text.length) {
+      msg.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    }
+  }
+  typing();
+}
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.innerHTML = '??';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+setInterval(createHeart, 300);
+
+function playMusic() {
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const o = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  o.connect(g);
+  g.connect(audioCtx.destination);
+  o.type = 'sine';
+  o.frequency.value = 440;
+  o.start();
+  g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3);
+}
+</script>
+</body>
+</html>
